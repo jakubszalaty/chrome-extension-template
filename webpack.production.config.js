@@ -9,7 +9,7 @@ module.exports = {
         popup: path.join(__dirname, 'src/popup/index.ts'),
         options: path.join(__dirname, 'src/options/index.ts'),
         background: path.join(__dirname, 'src/background/index.ts'),
-        // content_script: path.join(__dirname, 'src/content_script.ts'),
+       // content_script: path.join(__dirname, 'src/content_script/index.ts'),
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
