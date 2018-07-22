@@ -1,5 +1,3 @@
-'use strict'
-
 const changeColor = document.getElementById('changeColor')
 
 chrome.storage.sync.get('color', (data) => {
@@ -7,8 +5,9 @@ chrome.storage.sync.get('color', (data) => {
     changeColor.setAttribute('value', data.color)
 })
 
-let changed = false
-changeColor.onclick = (element) => {
+let changed: boolean = false
+
+changeColor.onclick = (element: any) => {
     const color = changed ? '' : element.target.value
     changed = !changed
 

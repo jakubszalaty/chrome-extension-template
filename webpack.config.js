@@ -5,11 +5,16 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
+    mode: 'none',
     entry: {
         popup: path.join(__dirname, 'src/popup/index.ts'),
         options: path.join(__dirname, 'src/options/index.ts'),
         background: path.join(__dirname, 'src/background/index.ts'),
         // content_script: path.join(__dirname, 'src/content_script.ts'),
+    },
+    devtool: 'inline-source-map',
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -17,6 +22,11 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: ['file-loader'],
@@ -35,6 +45,7 @@ module.exports = {
             template: 'src/options/index.html',
             inject: false,
         }),
+        // @ts-ignore
         new CopyWebpackPlugin([
             { from: 'src/assets', to: 'assets' },
             {
