@@ -1,6 +1,6 @@
 {
     "name": "Chrome extension template",
-    "version": "1.0",
+    "version": "0.1",
     "description": "Build an Extension with Typescript!",
     "permissions": ["activeTab", "declarativeContent", "storage"],
     "background": {
