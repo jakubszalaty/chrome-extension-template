@@ -4,14 +4,13 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: {
         popup: path.join(__dirname, 'src/popup/index.ts'),
         options: path.join(__dirname, 'src/options/index.ts'),
         background: path.join(__dirname, 'src/background/index.ts'),
         // content_script: path.join(__dirname, 'src/content_script.ts'),
     },
-    devtool: 'inline-source-map',
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
@@ -38,11 +37,13 @@ module.exports = {
             filename: 'popup/index.html',
             template: 'src/popup/index.html',
             inject: false,
+            minify: { removeComments: true, minifyCSS: true },
         }),
         new HtmlWebpackPlugin({
             filename: 'options/index.html',
             template: 'src/options/index.html',
             inject: false,
+            minify: { removeComments: true, minifyCSS: true },
         }),
         // @ts-ignore
         new CopyWebpackPlugin([

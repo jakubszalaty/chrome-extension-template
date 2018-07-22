@@ -8,7 +8,7 @@
     },
     "license": "MIT",
     "scripts": {
-        "build": "webpack",
+        "build": "webpack --config webpack.config.production.js",
         "watch": "webpack --watch"
     },
     "devDependencies": {
